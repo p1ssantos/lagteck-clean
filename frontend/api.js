@@ -1,5 +1,5 @@
 // URL do backend no Render
-const API_BASE = "https://lagteck-backend-api.onrender.com";
+const API_BASE= "https://lagteck-backend-api.onrender.com";
 
 async function api(path, opts = {}) {
   const token = localStorage.getItem("lagteck_token") || "";
@@ -9,7 +9,7 @@ async function api(path, opts = {}) {
     token ? { Authorization: `Bearer ${token}` } : {}
   );
 
-  const res = await fetch(API_BASE + path, { ...opts, headers });
+  const res = await fetch(API_URL + path, { ...opts, headers });
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
