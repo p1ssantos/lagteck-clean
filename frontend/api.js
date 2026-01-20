@@ -1,5 +1,5 @@
-// Troque aqui quando subir o backend
-const API_BASE = "https://lagteck-backend.onrender.com/api";
+// URL do backend no Render
+const API_BASE = "https://lagteck-backend-api.onrender.com";
 
 async function api(path, opts = {}) {
   const token = localStorage.getItem("lagteck_token") || "";
@@ -11,6 +11,7 @@ async function api(path, opts = {}) {
 
   const res = await fetch(API_BASE + path, { ...opts, headers });
   const data = await res.json().catch(() => ({}));
+
   if (!res.ok) {
     const msg = data.message || "Erro na requisição.";
     throw new Error(msg);
