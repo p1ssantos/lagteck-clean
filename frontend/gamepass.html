@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAG TECK - Loja de Gamepass</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="watermark">LAG TECK</div>
+
+  <div class="container">
+    <header>
+      <h1 class="main-title">GAMEPASS (BLOX FRUITS)</h1>
+    </header>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-weight:1000;color:#0f172a;font-size:18px;">
+          <i class="fas fa-store"></i> Loja oficial LAG TECK
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="index.html" style="background:#fff;border:2px solid #2563EB;color:#2563EB;">
+            <i class="fas fa-home"></i> Início
+          </a>
+          <a class="btn" href="dashboard.html" style="background:#fff;border:2px solid #2563EB;color:#2563EB;">
+            <i class="fas fa-user"></i> Minha conta
+          </a>
+          <a class="btn" href="checkout.html" style="background:linear-gradient(135deg,#10B981,#22c55e);color:#fff;">
+            <i class="fas fa-cart-shopping"></i> Carrinho (<span id="cartCount">0</span>)
+          </a>
+        </div>
+      </div>
+
+      <p style="margin-top:10px;color:#475569;font-weight:900;">
+        Estoque limitado. Quando o pagamento aprovar, você recebe o <b>ID da compra</b> e vai direto pro suporte no Discord.
+      </p>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-weight:1000;color:#0f172a;font-size:18px;">
+          <i class="fas fa-list"></i> Produtos
+        </div>
+
+        <button class="btn" style="background:#2563EB;color:#fff;" onclick="loadGamepasses()">
+          <i class="fas fa-rotate"></i> Atualizar
+        </button>
+      </div>
+
+      <div id="msg" style="margin-top:10px;text-align:center;font-weight:1000;"></div>
+
+      <div id="products"
+           style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+        <!-- cards entram via JS -->
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <a href="checkout.html" class="btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;">
+        <i class="fas fa-bag-shopping"></i> IR PARA CHECKOUT
+      </a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/gamepass.js"></script>
+</body>
+</html>

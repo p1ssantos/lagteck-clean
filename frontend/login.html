@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAG TECK - Login</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="watermark">LAG TECK</div>
+  
+
+  <div class="container">
+    <header>
+      <h1 class="main-title">LOGIN</h1>
+    </header>
+
+    <div class="card">
+      <p style="text-align:center; color:#334155; margin-bottom:18px; font-weight:700">
+        Entre para comprar Gamepass e ver seus pedidos.
+      </p>
+
+      <div style="display:grid; gap:12px; max-width:520px; margin:0 auto;">
+        <label style="font-weight:900; color:#0f172a;">Email</label>
+        <input id="email" type="email" placeholder="seuemail@gmail.com"
+               style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+
+        <label style="font-weight:900; color:#0f172a;">Senha</label>
+        <input id="password" type="password" placeholder="••••••••"
+               style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+
+        <button class="btn" style="background:linear-gradient(135deg,#2563EB,#0EA5E9);color:white;"
+                onclick="authLogin()">
+          <i class="fas fa-right-to-bracket"></i> ENTRAR
+        </button>
+
+        <a class="btn" href="register.html"
+           style="background:#fff;border:2px solid #2563EB;color:#2563EB;">
+          <i class="fas fa-user-plus"></i> CRIAR CONTA
+        </a>
+
+        <div style="text-align:center; margin-top:10px; color:#64748b; font-weight:700;">
+          Ou entre com:
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn" style="background:#111827;color:#fff;" onclick="comingSoon('Google/Discord OAuth')">
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button class="btn" style="background:#5865F2;color:#fff;" onclick="comingSoon('Google/Discord OAuth')">
+            <i class="fab fa-discord"></i> Discord
+          </button>
+        </div>
+
+        <div id="msg" style="margin-top:10px;text-align:center;font-weight:900;"></div>
+
+        <div style="text-align:center;margin-top:8px;">
+          <a href="index.html" style="color:#2563EB;font-weight:900;text-decoration:none;">
+            <i class="fas fa-home"></i> Voltar ao início
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

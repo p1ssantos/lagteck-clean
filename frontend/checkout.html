@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAG TECK - Checkout</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="watermark">LAG TECK</div>
+
+  <div class="container">
+    <header>
+      <h1 class="main-title">CHECKOUT</h1>
+    </header>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-weight:1000;color:#0f172a;font-size:18px;">
+          <i class="fas fa-cart-shopping"></i> Seu carrinho
+        </div>
+        <a class="btn" href="gamepass.html" style="background:#fff;border:2px solid #2563EB;color:#2563EB;">
+          <i class="fas fa-arrow-left"></i> Voltar
+        </a>
+      </div>
+
+      <div id="cartList" style="margin-top:12px; display:grid; gap:10px;"></div>
+
+      <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div style="font-weight:1000;color:#0f172a;font-size:18px;">
+          Total: R$ <span id="total">0.00</span>
+        </div>
+        <button class="btn" style="background:#ef4444;color:#fff;" onclick="clearCart()">
+          <i class="fas fa-trash"></i> Limpar carrinho
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="color:#0f172a;font-weight:1000;margin-bottom:10px;">
+        <i class="fas fa-credit-card"></i> Pagamento
+      </h2>
+
+      <div style="display:grid;gap:12px;max-width:800px;">
+        <div style="display:grid;gap:8px;">
+          <label style="font-weight:1000;">Discord ID (para mencionar no Discord após pagamento)</label>
+          <input id="discordId" type="text" placeholder="123456789012345678"
+                 style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px">
+        </div>
+
+        <div style="display:grid;gap:8px;">
+          <label style="font-weight:1000;">CPF (obrigatório para nota)</label>
+          <input id="cpf" type="text" placeholder="000.000.000-00"
+                 style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px">
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn" style="background:#10B981;color:#fff;" onclick="pay('pix')">
+            <i class="fas fa-qrcode"></i> PIX
+          </button>
+
+          <button class="btn" style="background:#2563EB;color:#fff;" onclick="pay('balance')">
+            <i class="fas fa-wallet"></i> SALDO
+          </button>
+
+          <button class="btn" style="background:#111827;color:#fff;" onclick="comingSoon('Cartão (Checkout Pro)')">
+            <i class="fas fa-credit-card"></i> CARTÃO
+          </button>
+        </div>
+
+        <div id="payBox" style="display:none; margin-top:10px; padding:16px; border-radius:14px; border:2px dashed #93c5fd;">
+          <div style="font-weight:1000;color:#0f172a;margin-bottom:10px;">
+            Pagamento PIX
+          </div>
+
+          <div id="orderIdBox" style="display:none; margin-bottom:10px;">
+            <div style="font-weight:1000;color:#0f172a;">ID DA COMPRA:</div>
+            <div id="orderId" style="font-size:38px;font-weight:1000;color:#2563EB;letter-spacing:4px;"></div>
+            <div style="margin-top:8px;color:#475569;font-weight:900;">
+              Guarde esse ID, pode ser solicitado no suporte.
+            </div>
+          </div>
+
+          <div id="pixArea" style="display:none; gap:14px; align-items:center; flex-wrap:wrap;">
+            <div style="min-width:240px;">
+              <img id="pixQr" alt="QR Code PIX" style="width:240px;height:240px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.2)"/>
+            </div>
+            <div style="flex:1; min-width:260px;">
+              <div style="font-weight:1000;margin-bottom:8px;">PIX Copia e Cola:</div>
+              <textarea id="pixCopy" readonly
+                        style="width:100%;height:140px;padding:12px;border-radius:12px;border:2px solid #cbd5e1;font-weight:800;"></textarea>
+              <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
+                <button class="btn" style="background:#0EA5E9;color:#fff;" onclick="copyPix()">
+                  <i class="fas fa-copy"></i> Copiar
+                </button>
+                <a class="btn" id="supportBtn" href="#" target="_blank"
+                   style="background:#5865F2;color:#fff;">
+                  <i class="fab fa-discord"></i> Ir para o Suporte
+                </a>
+              </div>
+              <p style="margin-top:10px;color:#475569;font-weight:900;">
+                Depois que o PIX for aprovado, o sistema aprova automaticamente e avisa no Discord.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="msg" style="text-align:center;font-weight:1000;"></div>
+
+        <div style="text-align:center;">
+          <a href="dashboard.html" style="color:#2563EB;font-weight:1000;text-decoration:none;">
+            <i class="fas fa-user"></i> Minha conta
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

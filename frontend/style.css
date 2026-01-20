@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* NOVO TEMA AZUL */
+    --primary-blue: #d6e9ff;
+    --dark-blue: #2563eb;
+    --accent-blue: #1d4ed8;
+    --light-blue: #60a5fa;
+    --sky-blue: #0ea5e9;
+    --text-dark: #1e293b;
+    --text-light: #f1f5f9;
+    --success: #10b981;
+    --warning: #ef4444;
+    --shadow: rgba(37, 99, 235, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ANIMAÇÕES INTERATIVAS */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* MARCA D'ÁGUA */
+.watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    font-weight: bold;
+    color: rgba(37, 99, 235, 0.1);
+    pointer-events: none;
+    z-index: 1;
+    transform: rotate(-45deg);
+    user-select: none;
+    letter-spacing: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* PROTEÇÃO MÁXIMA CONTRA SCREENSHOT */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(50px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* PROTEÇÃO AVANÇADA */
+@media print {
+    body {
+        filter: blur(50px) contrast(0);
+        background: #000 !important;
+    }
+    .blur-overlay {
+        display: flex !important;
+    }
+    * {
+        visibility: hidden !important;
+    }
+}
+
+/* CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* CABEÇALHO */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.main-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--dark-blue), var(--sky-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px var(--shadow);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* LOGO */
+.logo-container {
+    text-align: center;
+    margin: 40px 0;
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+.main-logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
+/* SEÇÃO DE DESBLOQUEIO */
+.unlock-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    margin: 30px 0;
+    animation: slideInFromLeft 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.unlock-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+/* BOTÕES */
+.tiktok-btn, .code-unlock-btn {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #000000, #fe2c55);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(254, 44, 85, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.code-unlock-btn {
+    background: linear-gradient(135deg, var(--dark-blue), var(--sky-blue));
+    margin-top: 30px;
+}
+
+.tiktok-btn::before, .code-unlock-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.tiktok-btn:hover::before, .code-unlock-btn:hover::before {
+    left: 100%;
+}
+
+.tiktok-btn:hover, .code-unlock-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(254, 44, 85, 0.6);
+}
+
+/* MODAL DE CÓDIGO */
+.code-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.code-modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: slideInFromLeft 0.4s ease;
+}
+
+.code-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3em;
+    text-align: center;
+    border: 3px solid var(--dark-blue);
+    border-radius: 10px;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+/* BOTÃO GAMEPASS */
+.gamepass-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 20px 10px;
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+    transition: all 0.3s ease;
+}
+
+.gamepass-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+}
+
+/* BARRA DE PROGRESSO */
+.progress-container {
+    width: 100%;
+    height: 50px;
+    background: #e5e7eb;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 30px 0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--dark-blue), var(--sky-blue));
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.progress-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+/* TIMER */
+.timer-display {
+    background: linear-gradient(135deg, var(--warning), #dc2626);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 30px auto;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+    animation: pulse 2s infinite;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+    
+    .watermark {
+        font-size: 60px;
+    }
+    
+    .unlock-section {
+        padding: 25px;
+    }
+    
+    .tiktok-btn, .code-unlock-btn {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+}
+
+/* EFEITOS DE HOVER INTERATIVOS */
+.interactive-element {
+    transition: all 0.3s ease;
+}
+
+.interactive-element:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}

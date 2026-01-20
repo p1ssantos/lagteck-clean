@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAG TECK - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="watermark">LAG TECK</div>
+    
+    
+    <div class="container">
+        <header>
+            <h1 class="main-title">SITE LAG TECK</h1>
+        </header>
+
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo da LagTeck" class="main-logo interactive-element" id="mainLogo">
+        </div>
+
+        <div class="unlock-section interactive-element">
+            <button class="tiktok-btn" onclick="followTikTok()">
+                <i class="fab fa-tiktok"></i> SIGA ESSA CONTA
+            </button>
+            <p class="info-text">Para liberar a barra de progresso, clique acima e siga a conta</p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+
+            <button class="unlock-btn" id="unlockBtn" onclick="unlockContent()" disabled>
+                <i class="fas fa-lock"></i> LIBERAR
+            </button>
+
+            <!-- NOVO: Botão Liberar por Código -->
+            <button class="code-unlock-btn" onclick="openCodeModal()">
+                <i class="fas fa-key"></i> LIBERAR POR VIA CÓDIGO
+            </button>
+
+            <!-- NOVO: Botão Comprar Gamepass -->
+            <a href="gamepass.html" class="gamepass-btn interactive-element">
+                <i class="fas fa-shopping-cart"></i> COMPRAR GAMEPASS
+            </a>
+        </div>
+
+        <!-- Modal de Código -->
+        <div class="code-modal" id="codeModal">
+            <div class="code-modal-content">
+                <h2 style="color: var(--dark-blue); margin-bottom: 20px;">
+                    <i class="fas fa-key"></i> Insira o Código
+                </h2>
+                <p style="color: #64748b; margin-bottom: 20px;">
+                    Pegue o código no Discord e insira abaixo.<br>
+                    <strong>Válido por apenas 30 segundos!</strong>
+                </p>
+                <input type="text" class="code-input" id="codeInput" placeholder="XXXX-XXXX" maxlength="9">
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                    <button onclick="verifyCode()" style="padding: 15px 30px; background: var(--success); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                        <i class="fas fa-check"></i> VERIFICAR
+                    </button>
+                    <button onclick="closeCodeModal()" style="padding: 15px 30px; background: var(--warning); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                        <i class="fas fa-times"></i> CANCELAR
+                    </button>
+                </div>
+                <p style="margin-top: 20px; color: #64748b;">
+                    Pegue o código em: <a href="https://discord.gg/RnZ6XHHFj7" target="_blank" style="color: var(--dark-blue); font-weight: bold;">Discord LAG TECK</a>
+                </p>
+            </div>
+        </div>
+
+        <footer class="social-footer">
+            <a href="https://discord.gg/RnZ6XHHFj7" target="_blank" class="discord-link interactive-element">
+                <i class="fab fa-discord"></i>
+                <span>Entrar na Comunidade</span>
+            </a>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/people/Lag-Teck/pfbid02ghdaj8YANNXBvcK5TyZMDpZtLfaTN14DTC9Fv6pQp7ehUhgfmPVJ9qzQs5u1YJLZl/" target="_blank" title="Facebook" class="interactive-element">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/lagteck/" target="_blank" title="Instagram" class="interactive-element">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@lagteck" target="_blank" title="TikTok" class="interactive-element">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="mailto:lagteck@gmail.com" title="Email" class="interactive-element">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="brand-footer">
+                <img src="logo.png" alt="LAG TECK" class="brand-logo">
+                <span class="brand-name">LAG TECK</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    
+    <script src="js/code-verify.js"></script>
+</body>
+</html>

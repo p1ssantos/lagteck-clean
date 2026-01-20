@@ -1,0 +1,6 @@
+.env
+.env.*
+*.env
+bot/.env.json
+node_modules
+.vercel

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAG TECK - Minha Conta</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="watermark">LAG TECK</div>
+
+  <div class="container">
+    <header>
+      <h1 class="main-title">MINHA CONTA</h1>
+    </header>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:900;font-size:20px;color:#0f172a" id="userName">Carregando...</div>
+          <div style="color:#475569;font-weight:800" id="userEmail"></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="gamepass.html" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;">
+            <i class="fas fa-store"></i> LOJA
+          </a>
+          <button class="btn" style="background:#ef4444;color:white;" onclick="logout()">
+            <i class="fas fa-right-from-bracket"></i> SAIR
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="color:#0f172a;font-weight:1000;margin-bottom:10px;">
+        <i class="fas fa-gear"></i> Configurações
+      </h2>
+
+      <div style="display:grid;gap:12px;max-width:700px;">
+        <div style="display:grid;gap:8px;">
+          <label style="font-weight:900;">Discord ID</label>
+          <input id="discordId" type="text" placeholder="123..."
+                 style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+        </div>
+
+        <div style="display:grid;gap:8px;">
+          <label style="font-weight:900;">CPF</label>
+          <input id="cpf" type="text" placeholder="000.000.000-00"
+                 style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+        </div>
+
+        <button class="btn" style="background:#2563EB;color:white;" onclick="saveProfile()">
+          <i class="fas fa-floppy-disk"></i> SALVAR
+        </button>
+
+        <div style="padding:14px;border-radius:12px;border:2px dashed #93c5fd;">
+          <div style="font-weight:1000;color:#0f172a;margin-bottom:6px;">
+            <i class="fas fa-wallet"></i> Saldo
+          </div>
+          <div style="font-weight:900;color:#0f172a;font-size:22px;">
+            R$ <span id="balance">0.00</span>
+          </div>
+          <p style="color:#475569;font-weight:800;margin-top:6px;">
+            (Adicionar saldo real via PIX/cartão entra no próximo passo do sistema.)
+          </p>
+        </div>
+
+        <div id="msg" style="text-align:center;font-weight:900;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="color:#0f172a;font-weight:1000;margin-bottom:10px;">
+        <i class="fas fa-receipt"></i> Meus pedidos
+      </h2>
+      <p style="color:#475569;font-weight:800">
+        Nesta versão, os pedidos ficam no backend. (Se você quiser, eu adiciono o endpoint `/api/payment/my-orders` no backend e mostro aqui.)
+      </p>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <a href="index.html" style="color:#2563EB;font-weight:1000;text-decoration:none;">
+        <i class="fas fa-home"></i> Voltar ao início
+      </a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadMe();
+    });
+  </script>
+</body>
+</html>

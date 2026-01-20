@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAG TECK - Cadastro</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="watermark">LAG TECK</div>
+  
+
+  <div class="container">
+    <header>
+      <h1 class="main-title">CADASTRO</h1>
+    </header>
+
+    <div class="card">
+      <p style="text-align:center; color:#334155; margin-bottom:18px; font-weight:800">
+        Crie sua conta. Você vai receber um <b>código por e-mail</b> para verificar.
+      </p>
+
+      <div style="display:grid; gap:12px; max-width:620px; margin:0 auto;">
+        <label style="font-weight:900;">Nome</label>
+        <input id="name" type="text" placeholder="Seu nome"
+               style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+
+        <label style="font-weight:900;">Discord ID (para mencionar nas compras)</label>
+        <input id="discordId" type="text" placeholder="Ex: 123456789012345678"
+               style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+
+        <label style="font-weight:900;">Email</label>
+        <input id="email" type="email" placeholder="seuemail@gmail.com"
+               style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div style="display:grid; gap:10px;">
+            <label style="font-weight:900;">Senha</label>
+            <input id="password" type="password" placeholder="mínimo 6"
+                   style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+          </div>
+          <div style="display:grid; gap:10px;">
+            <label style="font-weight:900;">Confirmar senha</label>
+            <input id="password2" type="password" placeholder="repita a senha"
+                   style="padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+          </div>
+        </div>
+
+        <button class="btn" style="background:linear-gradient(135deg,#2563EB,#0EA5E9);color:white;"
+                onclick="authRegister()">
+          <i class="fas fa-user-check"></i> CRIAR CONTA
+        </button>
+
+        <div style="margin-top:10px; padding:14px; border-radius:12px; border:2px dashed #93c5fd;">
+          <div style="font-weight:900; color:#0f172a; margin-bottom:10px;">
+            Verificar e-mail
+          </div>
+          <p style="color:#334155; font-weight:700; margin-bottom:10px;">
+            Depois que cadastrar, digite aqui o código enviado para seu e-mail (válido por 10 min).
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <input id="verifyEmail" type="email" placeholder="seuemail@gmail.com"
+                   style="flex:1;min-width:220px;padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+            <input id="verifyCode" type="text" placeholder="código 6 dígitos"
+                   style="width:220px;padding:14px;border-radius:12px;border:2px solid #cbd5e1;font-size:16px"/>
+            <button class="btn" style="background:#10B981;color:white;" onclick="verifyEmailCode()">
+              <i class="fas fa-shield-halved"></i> VERIFICAR
+            </button>
+          </div>
+        </div>
+
+        <div id="msg" style="margin-top:10px;text-align:center;font-weight:900;"></div>
+
+        <div style="text-align:center;margin-top:8px;">
+          <a href="login.html" style="color:#2563EB;font-weight:900;text-decoration:none;">
+            Já tenho conta → Entrar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
