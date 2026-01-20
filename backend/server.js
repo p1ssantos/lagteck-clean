@@ -32,10 +32,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch(err => console.error('❌ Erro MongoDB:', err));
 
 // Importar rotas
-const authRoutes = require('./routes/auth');
-const codeRoutes = require('./routes/code');
-const gamepassRoutes = require('./routes/gamepass');
-const paymentRoutes = require('./routes/payment');
+const authRoutes = require('./src/routes/auth');
+const codeRoutes = require('./src/routes/code');
+const gamepassRoutes = require('./src/routes/gamepass');
+const paymentRoutes = require('./src/routes/payment');
 
 // Usar rotas
 app.use('/api/auth', authRoutes);
